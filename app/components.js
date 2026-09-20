@@ -115,7 +115,7 @@ function AnnouncementBar() {
       <div className="mx-auto max-w-6xl flex items-center justify-center gap-2 text-xs sm:text-sm font-medium text-emerald-400">
         <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0" />
         <span>
-          🇲🇦 <strong>عرض حصري لرواد التجارة الإلكترونية بالمغرب:</strong> أول 10 متاجر يحصلون على إعداد كامل بـ{" "}
+          🇲🇦 <strong>عرض حصري لرواد التجارة الإلكترونية بالمغرب:</strong> أول 50 متجر يحصلون على إعداد كامل بـ{" "}
           <strong className="text-white underline decoration-gold">250 درهم فقط</strong> (خصم 50%) — التسليم خلال أقل من 24 ساعة فقط
         </span>
       </div>
