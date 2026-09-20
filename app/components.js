@@ -812,7 +812,7 @@ export function TestimonialsSection() {
       role: "مؤسس براند ساعات وعطور فاخرة",
       rating: 5,
       revenue: "+320,000 درهم / شهر",
-      text: "متجرنا على شوبيفاي كان يستغرق 4.5 ثوانٍ للتحميل على شبكات 4G بالمغرب، وكنا نخسر آلاف الدراهم يومياً في الإعلانات. بعد أن طور لنا آدم صفحة Next.js مع EcomBoost، أصبح التحميل فورياً بـ 0.3 ثانية وقفزت مبيعاتنا 3.2 أضعاف من الشهر الأول!",
+      text: "متجرنا على شوبيفاي كان يستغرق 4.5 ثوانٍ للتحميل على شبكات 4G بالمغرب، وكنا نخسر آلاف الدراهم يومياً في الإعلانات. بعد أن طور لنا محمد صفحة Next.js مع EcomBoost، أصبح التحميل فورياً بـ 0.3 ثانية وقفزت مبيعاتنا 3.2 أضعاف من الشهر الأول!",
     },
     {
       name: "فاطمة الزهراء بناني",
@@ -999,7 +999,7 @@ export function PricingSection() {
                 <div className="mt-10">
                   <a
                     id="pricing-cta"
-                    href="https://wa.me/212600000000?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D8%A2%D8%AF%D9%85%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D8%B5%D9%81%D8%AD%D8%A9%20Ecom%20Boost%20Pro%20%D8%A8%D9%80%20250%20%D8%AF%D8%B1%D9%87%D9%85"
+                    href="https://wa.me/212600000000?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D9%85%D8%AD%D9%85%D8%AF%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D8%B5%D9%81%D8%AD%D8%A9%20Ecom%20Boost%20Pro%20%D8%A8%D9%80%20250%20%D8%AF%D8%B1%D9%87%D9%85"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full flex items-center justify-center gap-3 py-5 rounded-xl bg-gradient-to-r from-cta-dark via-cta to-cta-bright text-white text-lg font-black shadow-[0_0_40px_rgba(249,115,22,0.45)] hover:scale-[1.02] transition-transform text-center"
@@ -1159,7 +1159,7 @@ export function Footer() {
 
         {/* Required Prompt Text */}
         <p className="text-xs sm:text-sm text-text-muted text-center" dir="ltr">
-          © 2026 Ecom Boost Pro | Developed by Adam.
+          © 2026 Ecom Boost Pro | Developed by Mohammed.
         </p>
 
         {/* Back to top */}

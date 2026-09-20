@@ -27,7 +27,7 @@ export const metadata = {
     "مبيعات الدفع عند الاستلام",
     "زيادة مبيعات المتجر",
   ],
-  authors: [{ name: "Adam" }],
+  authors: [{ name: "Mohammed" }],
   openGraph: {
     title: "إيكوم بوست برو — صفحات هبوط فائقة السرعة للتجارة الإلكترونية بالمغرب",
     description:
