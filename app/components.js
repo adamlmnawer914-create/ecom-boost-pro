@@ -1171,14 +1171,18 @@ export function Footer() {
             href="#hero"
             title="العودة للأعلى"
             aria-label="العودة للأعلى"
-            className="group inline-flex items-center gap-2.5 px-4 py-2 rounded-xl bg-[#0e121b] hover:bg-[#141926] border border-gold/40 hover:border-gold text-xs font-bold text-gold hover:text-gold-bright shadow-[0_0_20px_rgba(212,168,67,0.2)] hover:shadow-[0_0_30px_rgba(212,168,67,0.45)] transition-all duration-300 hover:scale-105 cursor-pointer"
+            className="group inline-flex items-center gap-2 px-5 sm:px-6 py-2.5 rounded-lg bg-gradient-to-r from-gold-dark via-gold to-gold-bright text-[#06070a] text-xs sm:text-sm font-black shadow-[0_0_22px_rgba(212,168,67,0.4)] hover:shadow-[0_0_35px_rgba(212,168,67,0.65)] hover:scale-105 transition-all cursor-pointer"
           >
             <span>العودة للأعلى</span>
-            <div className="w-6 h-6 rounded-lg bg-gradient-to-tr from-gold-dark via-gold to-gold-bright flex items-center justify-center text-black shadow-[0_0_10px_rgba(212,168,67,0.5)] group-hover:-translate-y-0.5 transition-transform duration-300">
-              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18" />
-              </svg>
-            </div>
+            <svg
+              className="w-4 h-4 text-[#06070a] group-hover:-translate-y-1 transition-transform"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={3}
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+            </svg>
           </a>
         </div>
 
