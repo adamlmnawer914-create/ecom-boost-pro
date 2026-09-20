@@ -136,53 +136,55 @@ export function Navbar() {
   }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50">
+    <>
       <AnnouncementBar />
-      <nav
-        className={`w-full transition-all duration-300 ${
+      <header
+        className={`sticky top-0 left-0 right-0 z-50 transition-all duration-300 bg-[#06070a] ${
           scrolled
-            ? "bg-[#06070a] border-b border-[rgba(255,255,255,0.08)] shadow-[0_10px_40px_rgba(0,0,0,0.8)]"
-            : "bg-transparent border-b border-transparent"
+            ? "border-b border-[rgba(255,255,255,0.08)] shadow-[0_10px_40px_rgba(0,0,0,0.8)]"
+            : "border-b border-transparent"
         }`}
       >
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
-          {/* Brand */}
-          <a href="#" className="flex items-center gap-2.5">
-            <div className="w-9 h-9 rounded-lg bg-[#141722] border border-gold/40 flex items-center justify-center text-gold font-black text-lg shadow-[0_0_15px_rgba(212,168,67,0.2)] font-[family-name:var(--font-display)]">
-              E
-            </div>
-            <div className="flex items-center gap-1.5">
-              <span className="text-xl sm:text-2xl font-black tracking-tight text-white font-[family-name:var(--font-display)]">
-                ECOM<span className="text-gold">BOOST</span>
-              </span>
-              <span className="text-[10px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded bg-gold/15 text-gold border border-gold/30">
-                برو
-              </span>
-            </div>
-          </a>
-
-          {/* Links */}
-          <div className="hidden md:flex items-center gap-7 text-sm font-semibold text-text-secondary">
-            <a href="#features" className="hover:text-gold transition-colors">المميزات</a>
-            <a href="#benchmark" className="hover:text-gold transition-colors">مقارنة السرعة</a>
-            <a href="#showcase" className="hover:text-gold transition-colors">قصص النجاح</a>
-            <a href="#reviews" className="hover:text-gold transition-colors">آراء العملاء</a>
-            <a href="#pricing" className="hover:text-gold transition-colors">الأسعار</a>
-            <a href="#faq" className="hover:text-gold transition-colors">الأسئلة الشائعة</a>
-          </div>
-
-          {/* Actions */}
-          <div className="flex items-center gap-3">
-            <a
-              href="#pricing"
-              className="px-5 sm:px-6 py-2.5 rounded-lg bg-gradient-to-r from-cta-dark to-cta text-white text-xs sm:text-sm font-black shadow-[0_0_20px_rgba(249,115,22,0.35)] hover:scale-105 transition-transform"
-            >
-              ابدأ مشروعك
+        <nav className="w-full">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
+            {/* Brand */}
+            <a href="#" className="flex items-center gap-2.5">
+              <div className="w-9 h-9 rounded-lg bg-[#141722] border border-gold/40 flex items-center justify-center text-gold font-black text-lg shadow-[0_0_15px_rgba(212,168,67,0.2)] font-[family-name:var(--font-display)]">
+                E
+              </div>
+              <div className="flex items-center gap-1.5">
+                <span className="text-xl sm:text-2xl font-black tracking-tight text-white font-[family-name:var(--font-display)]">
+                  ECOM<span className="text-gold">BOOST</span>
+                </span>
+                <span className="text-[10px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded bg-gold/15 text-gold border border-gold/30">
+                  برو
+                </span>
+              </div>
             </a>
+
+            {/* Links */}
+            <div className="hidden md:flex items-center gap-7 text-sm font-semibold text-text-secondary">
+              <a href="#features" className="hover:text-gold transition-colors">المميزات</a>
+              <a href="#benchmark" className="hover:text-gold transition-colors">مقارنة السرعة</a>
+              <a href="#showcase" className="hover:text-gold transition-colors">قصص النجاح</a>
+              <a href="#reviews" className="hover:text-gold transition-colors">آراء العملاء</a>
+              <a href="#pricing" className="hover:text-gold transition-colors">الأسعار</a>
+              <a href="#faq" className="hover:text-gold transition-colors">الأسئلة الشائعة</a>
+            </div>
+
+            {/* Actions */}
+            <div className="flex items-center gap-3">
+              <a
+                href="#pricing"
+                className="px-5 sm:px-6 py-2.5 rounded-lg bg-gradient-to-r from-cta-dark to-cta text-white text-xs sm:text-sm font-black shadow-[0_0_20px_rgba(249,115,22,0.35)] hover:scale-105 transition-transform"
+              >
+                ابدأ مشروعك
+              </a>
+            </div>
           </div>
-        </div>
-      </nav>
-    </header>
+        </nav>
+      </header>
+    </>
   );
 }
 
@@ -191,7 +193,7 @@ export function Navbar() {
    ═══════════════════════════════════════════════════════════ */
 export function HeroSection() {
   return (
-    <section id="hero" className="relative bg-[#06070a] pt-36 sm:pt-44 pb-20 overflow-hidden subtle-grid-bg">
+    <section id="hero" className="relative bg-[#06070a] pt-8 sm:pt-14 pb-20 overflow-hidden subtle-grid-bg">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           
