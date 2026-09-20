@@ -1166,12 +1166,19 @@ export function Footer() {
 
         {/* Back to top */}
         <div className="flex items-center gap-4">
-          <span className="text-xs text-emerald-400 font-mono">● خادم الدار البيضاء</span>
+          <span className="text-xs text-emerald-400 font-mono hidden sm:inline">● خادم الدار البيضاء</span>
           <a
             href="#hero"
-            className="text-xs font-bold text-text-secondary hover:text-gold uppercase tracking-wider transition-colors"
+            title="العودة للأعلى"
+            aria-label="العودة للأعلى"
+            className="group inline-flex items-center gap-2.5 px-4 py-2 rounded-xl bg-[#0e121b] hover:bg-[#141926] border border-gold/40 hover:border-gold text-xs font-bold text-gold hover:text-gold-bright shadow-[0_0_20px_rgba(212,168,67,0.2)] hover:shadow-[0_0_30px_rgba(212,168,67,0.45)] transition-all duration-300 hover:scale-105 cursor-pointer"
           >
-            العودة للأعلى ↑
+            <span>العودة للأعلى</span>
+            <div className="w-6 h-6 rounded-lg bg-gradient-to-tr from-gold-dark via-gold to-gold-bright flex items-center justify-center text-black shadow-[0_0_10px_rgba(212,168,67,0.5)] group-hover:-translate-y-0.5 transition-transform duration-300">
+              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+              </svg>
+            </div>
           </a>
         </div>
 
