@@ -1041,7 +1041,7 @@ export function UrgencySection() {
               لا تفوت هذا <span className="gold-gradient-text">العرض الحصري!</span>
             </h2>
             <p className="mt-3 text-text-secondary text-base sm:text-lg max-w-xl mx-auto font-normal">
-              نحن نلتزم بقبول 5 متاجر فقط أسبوعياً للحفاظ على جودة وسرعة التسليم خلال 48 ساعة. احجز متجرك بسعر 250 درهم قبل انتهاء التوقيت.
+              نحن نلتزم بقبول 5 متاجر فقط أسبوعياً للحفاظ على جودة وسرعة التسليم في أقل من 48 ساعة. احجز متجرك بسعر 250 درهم قبل انتهاء التوقيت.
             </p>
 
             {/* Countdown Widget */}
