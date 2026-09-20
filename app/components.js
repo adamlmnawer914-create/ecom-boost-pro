@@ -999,7 +999,7 @@ export function PricingSection() {
                 <div className="mt-10">
                   <a
                     id="pricing-cta"
-                    href="https://wa.me/212600000000?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D9%85%D8%AD%D9%85%D8%AF%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D8%B5%D9%81%D8%AD%D8%A9%20Ecom%20Boost%20Pro%20%D8%A8%D9%80%20250%20%D8%AF%D8%B1%D9%87%D9%85"
+                    href="https://wa.me/212769941313?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D9%85%D8%AD%D9%85%D8%AF%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D8%B5%D9%81%D8%AD%D8%A9%20Ecom%20Boost%20Pro%20%D8%A8%D9%80%20250%20%D8%AF%D8%B1%D9%87%D9%85"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full flex items-center justify-center gap-3 py-5 rounded-xl bg-gradient-to-r from-cta-dark via-cta to-cta-bright text-white text-lg font-black shadow-[0_0_40px_rgba(249,115,22,0.45)] hover:scale-[1.02] transition-transform text-center"
