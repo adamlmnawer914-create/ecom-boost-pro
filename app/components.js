@@ -116,7 +116,7 @@ function AnnouncementBar() {
         <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0" />
         <span>
           🇲🇦 <strong>عرض حصري لرواد التجارة الإلكترونية بالمغرب:</strong> أول 10 متاجر يحصلون على إعداد كامل بـ{" "}
-          <strong className="text-white underline decoration-gold">250 درهم فقط</strong> (خصم 50%) — التسليم خلال 48 ساعة فقط
+          <strong className="text-white underline decoration-gold">250 درهم فقط</strong> (خصم 50%) — التسليم خلال أقل من 24 ساعة فقط
         </span>
       </div>
     </div>
@@ -262,7 +262,7 @@ export function HeroSection() {
             {/* Pillars */}
             <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3 pt-6 border-t border-[rgba(255,255,255,0.06)]">
               {[
-                { label: "جاهزة خلال 48 ساعة" },
+                { label: "جاهزة في أقل من 24 ساعة فقط" },
                 { label: "دفع عند الاستلام (COD)" },
                 { label: "حماية مشفرة 100% SSL" },
                 { label: "ضمان استرجاع 7 أيام" },
@@ -627,15 +627,15 @@ export function FeaturesSection() {
     },
     {
       tag: "السرعة في الإنجاز",
-      title: "تسليم المتجر جاهزاً في 48 ساعة",
+      title: "تسليم المتجر جاهزاً خلال أقل من 24 ساعة فقط",
       subtitle: "من استلام المعلومات إلى الإطلاق الحي",
-      desc: "أرسل صور منتجك والأسعار والنصوص المقترحة، وخلال 48 ساعة فقط تكون صفحة هبوطك منشورة ومربوطة بدومينك وجاهزة لاستقبال طلبات الزبائن.",
+      desc: "أرسل صور منتجك والأسعار والنصوص المقترحة، وخلال أقل من 24 ساعة فقط تكون صفحة هبوطك منشورة ومربوطة بدومينك وجاهزة لاستقبال طلبات الزبائن.",
       icon: (
         <svg className="w-6 h-6 text-gold-bright" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
       ),
-      badge: "ضمان 48 ساعة",
+      badge: "أقل من 24 ساعة فقط",
     },
   ];
 
@@ -828,7 +828,7 @@ export function TestimonialsSection() {
       role: "مدير متجر منتجات جلدية تقليدية",
       rating: 5,
       revenue: "عائد 4.1x على الإنفاق الإعلاني",
-      text: "التصميم فخم ومبهر لدرجة تشعرك أن المتجر كلف ملايين السنتيمات. لا توجد أي تعقيدات، ونموذج الدفع عند الاستلام يجمع الطلبات بسلاسة. والتسليم في 48 ساعة كان في الموعد بالضبط!",
+      text: "التصميم فخم ومبهر لدرجة تشعرك أن المتجر كلف ملايين السنتيمات. لا توجد أي تعقيدات، ونموذج الدفع عند الاستلام يجمع الطلبات بسلاسة. والتسليم تم في أقل من 24 ساعة فقط وكان في الموعد بالضبط!",
     },
   ];
 
@@ -932,7 +932,7 @@ export function PricingSection() {
                     ★ باقة انطلاقة التجارة (Starter E-com Boost)
                   </div>
                   <span className="text-xs font-bold text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-md border border-emerald-500/25">
-                    🚀 تسليم خلال 48 ساعة
+                    🚀 تسليم خلال أقل من 24 ساعة فقط
                   </span>
                 </div>
 
@@ -955,7 +955,7 @@ export function PricingSection() {
                         <span className="text-5xl sm:text-6xl font-black text-white font-[family-name:var(--font-display)]">250</span>
                         <span className="text-2xl font-bold text-gold">درهم</span>
                       </div>
-                      <p className="text-xs text-text-muted mt-1">رسوم إعداد لمرة واحدة فقط · التسليم في 48 ساعة</p>
+                      <p className="text-xs text-text-muted mt-1">رسوم إعداد لمرة واحدة فقط · التسليم خلال أقل من 24 ساعة فقط</p>
                     </div>
 
                     <div className="sm:border-r border-[rgba(255,255,255,0.08)] sm:pr-6 pt-4 sm:pt-0 border-t sm:border-t-0">
@@ -1041,7 +1041,7 @@ export function UrgencySection() {
               لا تفوت هذا <span className="gold-gradient-text">العرض الحصري!</span>
             </h2>
             <p className="mt-3 text-text-secondary text-base sm:text-lg max-w-xl mx-auto font-normal">
-              نحن نلتزم بقبول 5 متاجر فقط أسبوعياً للحفاظ على جودة وسرعة التسليم في أقل من 48 ساعة. احجز متجرك بسعر 250 درهم قبل انتهاء التوقيت.
+              نحن نلتزم بقبول 5 متاجر فقط أسبوعياً للحفاظ على جودة وسرعة التسليم خلال أقل من 24 ساعة فقط. احجز متجرك بسعر 250 درهم قبل انتهاء التوقيت.
             </p>
 
             {/* Countdown Widget */}
@@ -1058,7 +1058,7 @@ export function UrgencySection() {
             </a>
 
             <div className="mt-6 flex flex-wrap items-center justify-center gap-6 text-xs text-text-muted">
-              <span>✓ تسليم جاهز في 48 ساعة</span>
+              <span>✓ تسليم جاهز خلال أقل من 24 ساعة فقط</span>
               <span>✓ إعداد الاستضافة مجاناً</span>
               <span>✓ ضمان رضا كامل بنسبة 100%</span>
             </div>
@@ -1079,7 +1079,7 @@ export function FAQSection() {
   const faqs = [
     {
       q: "كم يستغرق تجهيز صفحة الهبوط وإطلاقها؟",
-      a: "خلال 48 ساعة فقط. بمجرد تزويدنا بصور منتجك وعنوان العرض والأسعار، يتكفل فريقنا بالبرمجة الكاملة بـ Next.js وربط الدومين وإطلاق المتجر على خوادم Vercel السحابية.",
+      a: "خلال أقل من 24 ساعة فقط! بمجرد تزويدنا بصور منتجك وعنوان العرض والأسعار، يتكفل فريقنا بالبرمجة الكاملة بـ Next.js وربط الدومين وإطلاق المتجر على خوادم Vercel السحابية.",
     },
     {
       q: "هل تدعم الصفحة الدفع عند الاستلام (COD) في المغرب؟",
