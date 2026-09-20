@@ -1171,11 +1171,11 @@ export function Footer() {
             href="#hero"
             title="العودة للأعلى"
             aria-label="العودة للأعلى"
-            className="group inline-flex items-center gap-2 px-5 sm:px-6 py-2.5 rounded-lg bg-gradient-to-r from-gold-dark via-gold to-gold-bright text-[#06070a] text-xs sm:text-sm font-black shadow-[0_0_22px_rgba(212,168,67,0.4)] hover:shadow-[0_0_35px_rgba(212,168,67,0.65)] hover:scale-105 transition-all cursor-pointer"
+            className="group inline-flex items-center gap-2 px-5 sm:px-6 py-2.5 rounded-lg bg-gradient-to-r from-[#1d4ed8] via-[#2563eb] to-[#0ea5e9] text-white text-xs sm:text-sm font-black shadow-[0_0_25px_rgba(37,99,235,0.5)] hover:shadow-[0_0_35px_rgba(14,165,233,0.75)] hover:scale-105 border border-[rgba(56,189,248,0.35)] transition-all cursor-pointer"
           >
             <span>العودة للأعلى</span>
             <svg
-              className="w-4 h-4 text-[#06070a] group-hover:-translate-y-1 transition-transform"
+              className="w-4 h-4 text-white group-hover:-translate-y-1 transition-transform"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
