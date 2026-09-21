@@ -62,52 +62,48 @@ function AnimatedCounter({ target, suffix = "", duration = 1800 }) {
   return <span ref={ref}>{count.toLocaleString("ar-MA")}{suffix}</span>;
 }
 
-const SEVEN_DAYS_IN_SECONDS = 7 * 24 * 60 * 60; // 7 days = 604,800 seconds
+// 7-day cycle in milliseconds: 7 * 24 * 60 * 60 * 1000 = 604,800,000 ms
+const CYCLE_MS = 7 * 24 * 60 * 60 * 1000;
+// Global anchor timestamp (Monday, 21 Sep 2026 00:00:00 UTC = 1789948800000)
+// Anchoring to UTC ensures every device, tab, and visitor sees the exact same second at the exact same moment
+const GLOBAL_ANCHOR_MS = 1789948800000;
+
+function getGlobalSynchronizedSeconds() {
+  const now = Date.now();
+  const diff = (now - GLOBAL_ANCHOR_MS) % CYCLE_MS;
+  const remMs = CYCLE_MS - (diff < 0 ? diff + CYCLE_MS : diff);
+  const remSec = Math.floor(remMs / 1000);
+  return remSec <= 0 ? 7 * 24 * 3600 : remSec;
+}
 
 function CountdownTimer() {
-  const [secondsLeft, setSecondsLeft] = useState(SEVEN_DAYS_IN_SECONDS);
+  const [secondsLeft, setSecondsLeft] = useState(getGlobalSynchronizedSeconds);
 
   useEffect(() => {
-    const STORAGE_KEY = "ecom_boost_timer_target_v2";
-    let target = null;
+    let timerId;
 
-    try {
-      const stored = localStorage.getItem(STORAGE_KEY);
-      const now = Date.now();
-      if (stored) {
-        const parsed = Number(stored);
-        if (!isNaN(parsed) && parsed > now && parsed <= now + SEVEN_DAYS_IN_SECONDS * 1000) {
-          target = parsed;
-        }
-      }
-      if (!target) {
-        target = now + SEVEN_DAYS_IN_SECONDS * 1000;
-        localStorage.setItem(STORAGE_KEY, String(target));
-      }
-    } catch {
-      target = Date.now() + SEVEN_DAYS_IN_SECONDS * 1000;
-    }
-
-    const updateTimer = () => {
-      const now = Date.now();
-      let diff = Math.floor((target - now) / 1000);
-
-      if (diff <= 0) {
-        target = Date.now() + SEVEN_DAYS_IN_SECONDS * 1000;
-        try {
-          localStorage.setItem(STORAGE_KEY, String(target));
-        } catch {
-          // ignore
-        }
-        diff = SEVEN_DAYS_IN_SECONDS;
-      }
-
-      setSecondsLeft(diff);
+    const syncTick = () => {
+      setSecondsLeft(getGlobalSynchronizedSeconds());
+      // Align tick exactly with the start of the next wall-clock second boundary (000ms)
+      const msUntilNextSecond = 1000 - (Date.now() % 1000);
+      timerId = setTimeout(syncTick, msUntilNextSecond);
     };
 
-    updateTimer();
-    const interval = setInterval(updateTimer, 1000);
-    return () => clearInterval(interval);
+    // Immediate synchronization on mount
+    syncTick();
+
+    // Re-sync immediately when user switches tabs or wakes device
+    const handleVisibilityChange = () => {
+      if (!document.hidden) {
+        syncTick();
+      }
+    };
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
+    return () => {
+      clearTimeout(timerId);
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
   }, []);
 
   const days = Math.floor(secondsLeft / (24 * 3600));
@@ -127,7 +123,10 @@ function CountdownTimer() {
       ].map((item, index) => (
         <div key={item.label} className="flex items-center gap-1.5 sm:gap-4">
           <div className="flex flex-col items-center bg-[#090b10] border border-[rgba(212,168,67,0.35)] rounded-xl px-2.5 py-2 sm:px-6 sm:py-4 min-w-[62px] sm:min-w-[92px]">
-            <span className="text-2xl sm:text-4xl font-extrabold text-white tabular-nums font-mono">
+            <span
+              suppressHydrationWarning
+              className="text-2xl sm:text-4xl font-extrabold text-white tabular-nums font-mono"
+            >
               {item.val}
             </span>
             <span className="text-[10px] sm:text-xs text-text-muted font-bold tracking-wider mt-1">
