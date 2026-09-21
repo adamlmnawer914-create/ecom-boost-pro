@@ -62,48 +62,80 @@ function AnimatedCounter({ target, suffix = "", duration = 1800 }) {
   return <span ref={ref}>{count.toLocaleString("ar-MA")}{suffix}</span>;
 }
 
-const COUNTDOWN_INITIAL_SECONDS = 3 * 3600 + 42 * 60 + 19;
+const SEVEN_DAYS_IN_SECONDS = 7 * 24 * 60 * 60; // 7 days = 604,800 seconds
 
 function CountdownTimer() {
-  const [secondsLeft, setSecondsLeft] = useState(COUNTDOWN_INITIAL_SECONDS);
+  const [secondsLeft, setSecondsLeft] = useState(SEVEN_DAYS_IN_SECONDS);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setSecondsLeft((prev) => {
-        if (prev <= 1) {
-          return COUNTDOWN_INITIAL_SECONDS;
-        }
-        return prev - 1;
-      });
-    }, 1000);
+    const STORAGE_KEY = "ecom_boost_timer_target_v2";
+    let target = null;
 
-    return () => clearInterval(timer);
+    try {
+      const stored = localStorage.getItem(STORAGE_KEY);
+      const now = Date.now();
+      if (stored) {
+        const parsed = Number(stored);
+        if (!isNaN(parsed) && parsed > now && parsed <= now + SEVEN_DAYS_IN_SECONDS * 1000) {
+          target = parsed;
+        }
+      }
+      if (!target) {
+        target = now + SEVEN_DAYS_IN_SECONDS * 1000;
+        localStorage.setItem(STORAGE_KEY, String(target));
+      }
+    } catch {
+      target = Date.now() + SEVEN_DAYS_IN_SECONDS * 1000;
+    }
+
+    const updateTimer = () => {
+      const now = Date.now();
+      let diff = Math.floor((target - now) / 1000);
+
+      if (diff <= 0) {
+        target = Date.now() + SEVEN_DAYS_IN_SECONDS * 1000;
+        try {
+          localStorage.setItem(STORAGE_KEY, String(target));
+        } catch {
+          // ignore
+        }
+        diff = SEVEN_DAYS_IN_SECONDS;
+      }
+
+      setSecondsLeft(diff);
+    };
+
+    updateTimer();
+    const interval = setInterval(updateTimer, 1000);
+    return () => clearInterval(interval);
   }, []);
 
-  const hours = Math.floor(secondsLeft / 3600);
+  const days = Math.floor(secondsLeft / (24 * 3600));
+  const hours = Math.floor((secondsLeft % (24 * 3600)) / 3600);
   const minutes = Math.floor((secondsLeft % 3600) / 60);
   const seconds = secondsLeft % 60;
 
   const pad = (n) => String(n).padStart(2, "0");
 
   return (
-    <div className="flex items-center justify-center gap-2 sm:gap-4" dir="ltr">
+    <div className="flex items-center justify-center gap-1.5 sm:gap-4" dir="ltr">
       {[
+        { val: pad(days), label: "يوم" },
         { val: pad(hours), label: "ساعة" },
         { val: pad(minutes), label: "دقيقة" },
         { val: pad(seconds), label: "ثانية" },
       ].map((item, index) => (
-        <div key={item.label} className="flex items-center gap-2 sm:gap-4">
-          <div className="flex flex-col items-center bg-[#090b10] border border-[rgba(212,168,67,0.35)] rounded-xl px-4 py-3 sm:px-6 sm:py-4 min-w-[76px] sm:min-w-[94px]">
-            <span className="text-3xl sm:text-4xl font-extrabold text-white tabular-nums font-mono">
+        <div key={item.label} className="flex items-center gap-1.5 sm:gap-4">
+          <div className="flex flex-col items-center bg-[#090b10] border border-[rgba(212,168,67,0.35)] rounded-xl px-2.5 py-2 sm:px-6 sm:py-4 min-w-[62px] sm:min-w-[92px]">
+            <span className="text-2xl sm:text-4xl font-extrabold text-white tabular-nums font-mono">
               {item.val}
             </span>
             <span className="text-[10px] sm:text-xs text-text-muted font-bold tracking-wider mt-1">
               {item.label}
             </span>
           </div>
-          {index < 2 && (
-            <span className="text-2xl font-bold text-gold mb-4">:</span>
+          {index < 3 && (
+            <span className="text-lg sm:text-2xl font-bold text-gold mb-2 sm:mb-4">:</span>
           )}
         </div>
       ))}
