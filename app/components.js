@@ -62,31 +62,36 @@ function AnimatedCounter({ target, suffix = "", duration = 1800 }) {
   return <span ref={ref}>{count.toLocaleString("ar-MA")}{suffix}</span>;
 }
 
+const COUNTDOWN_INITIAL_SECONDS = 3 * 3600 + 42 * 60 + 19;
+
 function CountdownTimer() {
-  const [time, setTime] = useState({ h: 3, m: 42, s: 19 });
+  const [secondsLeft, setSecondsLeft] = useState(COUNTDOWN_INITIAL_SECONDS);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setTime((prev) => {
-        let { h, m, s } = prev;
-        s--;
-        if (s < 0) { s = 59; m--; }
-        if (m < 0) { m = 59; h--; }
-        if (h < 0) { h = 23; m = 59; s = 59; }
-        return { h, m, s };
+      setSecondsLeft((prev) => {
+        if (prev <= 1) {
+          return COUNTDOWN_INITIAL_SECONDS;
+        }
+        return prev - 1;
       });
     }, 1000);
+
     return () => clearInterval(timer);
   }, []);
+
+  const hours = Math.floor(secondsLeft / 3600);
+  const minutes = Math.floor((secondsLeft % 3600) / 60);
+  const seconds = secondsLeft % 60;
 
   const pad = (n) => String(n).padStart(2, "0");
 
   return (
     <div className="flex items-center justify-center gap-2 sm:gap-4" dir="ltr">
       {[
-        { val: pad(time.h), label: "ساعة" },
-        { val: pad(time.m), label: "دقيقة" },
-        { val: pad(time.s), label: "ثانية" },
+        { val: pad(hours), label: "ساعة" },
+        { val: pad(minutes), label: "دقيقة" },
+        { val: pad(seconds), label: "ثانية" },
       ].map((item, index) => (
         <div key={item.label} className="flex items-center gap-2 sm:gap-4">
           <div className="flex flex-col items-center bg-[#090b10] border border-[rgba(212,168,67,0.35)] rounded-xl px-4 py-3 sm:px-6 sm:py-4 min-w-[76px] sm:min-w-[94px]">
@@ -1043,7 +1048,7 @@ export function UrgencySection() {
               لا تفوت هذا <span className="gold-gradient-text">العرض الحصري!</span>
             </h2>
             <p className="mt-3 text-text-secondary text-base sm:text-lg max-w-xl mx-auto font-normal">
-              نحن نلتزم بقبول 5 متاجر فقط أسبوعياً للحفاظ على جودة وسرعة التسليم خلال أقل من 24 ساعة فقط. احجز متجرك بسعر 250 درهم قبل انتهاء التوقيت.
+              نحن نلتزم بقبول 70 متجر فقط أسبوعياً للحفاظ على جودة وسرعة التسليم.
             </p>
 
             {/* Countdown Widget */}
@@ -1053,7 +1058,7 @@ export function UrgencySection() {
 
             {/* CTA */}
             <a
-              href="#pricing"
+              href="#"
               className="inline-flex items-center justify-center gap-3 px-10 py-5 rounded-xl bg-gradient-to-r from-cta-dark via-cta to-cta-bright text-white text-base sm:text-lg font-black shadow-[0_0_35px_rgba(249,115,22,0.45)] hover:scale-105 transition-transform"
             >
               🛒 احجز صفحتك الآن — 250 درهم فقط
